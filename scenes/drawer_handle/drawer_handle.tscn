@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2s8dy8j4mye8"]
+
+[ext_resource type="Script" uid="uid://b5ovod2na8e8n" path="res://scenes/drawer_handle/drawer_handle.gd" id="1_a5crt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6kbj"]
+size = Vector2(100, 50)
+
+[node name="drawerHandle" type="Node2D"]
+script = ExtResource("1_a5crt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i6kbj")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

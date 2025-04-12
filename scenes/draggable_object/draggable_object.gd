@@ -4,10 +4,9 @@ const snap_duration := 0.1
 
 var draggable := false
 var zone_refs: Array[Node2D]
-var drag_position_delta: Vector2
+var drag_position_offset: Vector2
 var initial_position: Vector2
 var is_inside_dragging_zone := true
-var is_inside_the_drawer := false
 
 var tween: Tween
 
@@ -44,10 +43,10 @@ func _process(delta: float) -> void:
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			initial_position = global_position
-			drag_position_delta = global_position - get_global_mouse_position()
+			drag_position_offset = global_position - get_global_mouse_position()
 			Dragging.drag_object_start(self)
 		if Input.is_action_pressed("click"):
-			global_position = get_global_mouse_position() + drag_position_delta
+			global_position = get_global_mouse_position() + drag_position_offset
 		elif Input.is_action_just_released("click"):
 			handle_reposition()
 
@@ -97,6 +96,9 @@ func find_target_zone() -> Node2D:
 		return null
 	return zone_refs[i]
 
+func move(vector: Vector2):
+	global_position += vector
+
 func _on_area_2d_mouse_entered() -> void:
 	if not Dragging.is_dragging || Dragging.selected_object != self:
 		Dragging.select_object(self)
@@ -112,20 +114,27 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		zone_refs.append(body)
 
 
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("dropable"):
 		zone_refs.erase(body)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("drawer"):
-		pass
+	if area.is_in_group("drawer_left"):
+		add_to_group("drawer_left")
+	if area.is_in_group("drawer_center"):
+		add_to_group("drawer_center")
+	if area.is_in_group("drawer_right"):
+		add_to_group("drawer_right")
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.is_in_group("drawer"):
-		pass
+	if area.is_in_group("drawer_left"):
+		remove_from_group("drawer_left")
+	if area.is_in_group("drawer_center"):
+		remove_from_group("drawer_center")
+	if area.is_in_group("drawer_right"):
+		remove_from_group("drawer_right")
 
 func _notification(what):
 	if what == NOTIFICATION_WM_MOUSE_EXIT && Dragging.selected_object == self:
