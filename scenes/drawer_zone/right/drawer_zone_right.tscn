@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf1rd0hoxdgga"]
+
+[ext_resource type="PackedScene" uid="uid://6g3t4to36euh" path="res://scenes/drawer_zone/drawer_zone.tscn" id="1_e54wn"]
+[ext_resource type="Texture2D" uid="uid://k1aing88atyk" path="res://assets/table/drawer_3.png" id="2_alhih"]
+[ext_resource type="PackedScene" uid="uid://d2s8dy8j4mye8" path="res://scenes/drawer_handle/drawer_handle.tscn" id="3_0rcpa"]
+
+[node name="drawerZoneCenter" groups=["drawer_right"] instance=ExtResource("1_e54wn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_alhih")
+
+[node name="CollisionPolygon2D" parent="." index="1" groups=["drawer_right"]]
+polygon = PackedVector2Array(-132, -164, -113, 22, 101, 23, 70, -164)
+
+[node name="drawerHandle" parent="." index="2" groups=["drawer_right"] instance=ExtResource("3_0rcpa")]
+position = Vector2(3, 90)
+y_min = 60
+angle_radians = -0.157

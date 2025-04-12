@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://cl4ksmm8ycpyc" path="res://scenes/dragging_zone/dragging_zone.gd" id="1_xjbuc"]
 
 [node name="draggingZone" type="Area2D" groups=["dragging_zone"]]
-collision_layer = 131072
-collision_mask = 131072
+collision_layer = 131073
+collision_mask = 131073
 script = ExtResource("1_xjbuc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

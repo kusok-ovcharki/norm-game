@@ -8,10 +8,12 @@ var initial_position: Vector2
 var tween: Tween
 var queue_deselect := false
 
-var y_max := 220
-var y_min := 0
+@export var y_max := 220
+@export var y_min := 0
 
 @export var angle_radians := 0.3
+
+@onready var shape := $Area2D/CollisionShape2D
 
 func _ready() -> void:
 	Dragging.object_selected.connect(select)
@@ -24,7 +26,7 @@ func select(object: Node2D):
 		draggable = false
 		scale = Vector2(1, 1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			initial_position = global_position
@@ -44,14 +46,14 @@ func x_offset(y: float):
 
 func move_drawer(vector: Vector2):
 	var groups = get_groups()
-	var i = groups.find_custom(func(name: StringName): return name.begins_with("drawer_"))
+	var i = groups.find_custom(func(group_name: StringName): return group_name.begins_with("drawer_"))
 	if i == -1:
 		return
 	var drawer_group = groups[i]
 	get_tree().call_group(drawer_group, "move", vector)
 
-func move(vector: Vector2):
-	global_position += vector
+#func move(vector: Vector2):
+	#global_position += vector
 
 func handle_reposition():
 	Dragging.drag_object_end(self)
