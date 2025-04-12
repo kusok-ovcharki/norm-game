@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://6g3t4to36euh"]
+
+[ext_resource type="PackedScene" uid="uid://ink88vvv2xej" path="res://scenes/dragging_zone/dragging_zone.tscn" id="1_fcp7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bku0f"]
+size = Vector2(200, 200)
+
+[node name="drawerZone" instance=ExtResource("1_fcp7c")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_bku0f")

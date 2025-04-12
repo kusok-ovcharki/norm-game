@@ -11,6 +11,34 @@ size = Vector2(128, 128)
 [node name="draggableObject" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_vcwhe")
 
+[node name="RayCast2DDown" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -64)
+target_position = Vector2(0, 128)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DUp" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, 64)
+target_position = Vector2(0, -128)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(64, 0)
+target_position = Vector2(-128, 0)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(-64, 0)
+target_position = Vector2(128, 0)
+collision_mask = 131072
+collide_with_areas = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(128, 128)
 texture = SubResource("CanvasTexture_18ddp")
