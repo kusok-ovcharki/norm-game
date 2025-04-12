@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=3 uid="uid://bqntex0s5ahkv"]
+
+[ext_resource type="Texture2D" uid="uid://bd2pvpwvm4irq" path="res://assets/Cafe_Interior_Dawn.jpg" id="1_bdun8"]
+[ext_resource type="Texture2D" uid="uid://baps6smtv88yh" path="res://assets/mouse smile.png" id="2_ta01q"]
+[ext_resource type="Texture2D" uid="uid://bvsmvxh5tmbo5" path="res://assets/alpaca neutral.png" id="3_bpgek"]
+[ext_resource type="Script" uid="uid://q35sm3swbgtn" path="res://scripts/control.gd" id="4_jqlnc"]
+[ext_resource type="Script" uid="uid://baspywv4txbiv" path="res://scripts/margin_container.gd" id="5_ta01q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nd5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ta01q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljm0d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bpgek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqrjp"]
+bg_color = Color(0.124962, 0.0785797, 0.0179677, 0.682353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60wqe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r5y3"]
+bg_color = Color(0.6, 0.6, 0.6, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uqlb"]
+bg_color = Color(0.509804, 0.509804, 0.509804, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ti55o"]
+bg_color = Color(0.6, 0.6, 0.6, 0.509804)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anafn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg6bi"]
+bg_color = Color(0.509286, 0.509286, 0.509286, 0.666667)
+
+[node name="DialogScene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_bdun8")
+
+[node name="Character1" type="AnimatedSprite2D" parent="."]
+position = Vector2(296, 360)
+sprite_frames = SubResource("SpriteFrames_6nd5d")
+
+[node name="Character2" type="AnimatedSprite2D" parent="."]
+position = Vector2(296, 360)
+sprite_frames = SubResource("SpriteFrames_ljm0d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_jqlnc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 474.0
+offset_right = 1240.0
+offset_bottom = 714.0
+alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqrjp")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_60wqe")
+text = "Альпака"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 61.0
+offset_right = 1190.0
+offset_bottom = 225.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("5_ta01q")
+
+[node name="PrevButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 50.0
+offset_top = 484.0
+offset_right = 150.0
+offset_bottom = 519.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 19
+theme_override_styles/hover = SubResource("StyleBoxFlat_6r5y3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4uqlb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ti55o")
+disabled = true
+text = "Назад"
+
+[node name="NextButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+offset_left = 1130.0
+offset_top = 484.0
+offset_right = 1230.0
+offset_bottom = 524.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 19
+theme_override_styles/hover = SubResource("StyleBoxFlat_anafn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sg6bi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ti55o")
+text = "Далее"
+
+[connection signal="gui_input" from="Control/MarginContainer" to="Control" method="_on_margin_container_gui_input"]
+[connection signal="pressed" from="Control/PrevButton" to="Control" method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/NextButton" to="Control" method="_on_next_button_pressed"]
