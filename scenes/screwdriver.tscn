@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicf825lx4l4c"]
+
+[ext_resource type="Script" uid="uid://clakkxohl1b3f" path="res://scenes/screwdriver.gd" id="1_2mm6f"]
+[ext_resource type="Texture2D" uid="uid://pcbyj466g1n8" path="res://assets/screwdriver_side.png" id="2_m04ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ddp"]
+size = Vector2(128, 128)
+
+[node name="ScrewdriverObject" type="Node2D" groups=["draggable"]]
+script = ExtResource("1_2mm6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m04ge")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_18ddp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

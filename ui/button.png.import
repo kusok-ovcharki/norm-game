@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvsmvxh5tmbo5"
-path="res://.godot/imported/alpaca neutral.png-4f0925ca45ed4c817b49a40ace9666e1.ctex"
+uid="uid://dgun83ptky1fp"
+path="res://.godot/imported/button.png-8078cadb1f4a4a2b5da3ea9be6434a03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/alpaca neutral.png"
-dest_files=["res://.godot/imported/alpaca neutral.png-4f0925ca45ed4c817b49a40ace9666e1.ctex"]
+source_file="res://ui/button.png"
+dest_files=["res://.godot/imported/button.png-8078cadb1f4a4a2b5da3ea9be6434a03.ctex"]
 
 [params]
 
