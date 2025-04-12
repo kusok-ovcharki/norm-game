@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dux3pi6uc3cbt"]
+
+[ext_resource type="Script" uid="uid://b6infitq568l3" path="res://scenes/drop_zone/drop_zone.gd" id="1_dlln2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omn3e"]
+radius = 64.0
+
+[node name="dropZone" type="StaticBody2D" groups=["dropable"]]
+script = ExtResource("1_dlln2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_omn3e")
