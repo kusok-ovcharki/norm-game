@@ -110,12 +110,12 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("dropable"):
+	if body.is_in_group("droppable"):
 		zone_refs.append(body)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("dropable"):
+	if body.is_in_group("droppable"):
 		zone_refs.erase(body)
 
 
