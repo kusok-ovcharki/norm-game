@@ -1,6 +1,6 @@
 extends Node
 
-const max_z_index := 1000
+const max_z_index := 999
 
 const min_z_index := 100
 
@@ -35,8 +35,8 @@ func select_object(object: Node2D):
 		_set_selected_object(object)
 	hovered_objects.append(object)
 
-func deselect_object(object: Node2D):
-	if is_dragging && selected_object == object:
+func deselect_object(object: Node2D, force: bool = false):
+	if !force && is_dragging && selected_object == object:
 		return
 	hovered_objects.erase(object)
 	if selected_object == object:

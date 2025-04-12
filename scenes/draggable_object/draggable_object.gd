@@ -7,6 +7,7 @@ var zone_refs: Array[Node2D]
 var drag_position_delta: Vector2
 var initial_position: Vector2
 var is_inside_dragging_zone := true
+var is_inside_the_drawer := false
 
 var tween: Tween
 
@@ -16,6 +17,8 @@ var tween: Tween
 @onready var raycastUp := $RayCast2DUp
 @onready var raycastLeft := $RayCast2DLeft
 @onready var raycastRight := $RayCast2DRight
+
+@onready var area := $Area2D
 
 func _ready() -> void:
 	Dragging.object_selected.connect(select)
@@ -46,16 +49,19 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("click"):
 			global_position = get_global_mouse_position() + drag_position_delta
 		elif Input.is_action_just_released("click"):
-			Dragging.drag_object_end(self)
-			if is_inside_drop_zone():
-				var target_zone = find_target_zone()
-				if target_zone:
-					snap_to_zone(target_zone)
-				else:
-					reset_position()
-			elif !is_inside_dragging_zone || Dragging.fully_outside_of_dragging_zone():
-				reset_position()
+			handle_reposition()
 
+
+func handle_reposition():
+	Dragging.drag_object_end(self)
+	if is_inside_drop_zone():
+		var target_zone = find_target_zone()
+		if target_zone:
+			snap_to_zone(target_zone)
+		else:
+			reset_position()
+	elif !is_inside_dragging_zone || Dragging.fully_outside_of_dragging_zone():
+		reset_position()
 
 func reset_position():
 	if tween:
@@ -106,6 +112,22 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		zone_refs.append(body)
 
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("dropable"):
 		zone_refs.erase(body)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("drawer"):
+		pass
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("drawer"):
+		pass
+
+func _notification(what):
+	if what == NOTIFICATION_WM_MOUSE_EXIT && Dragging.selected_object == self:
+		Dragging.deselect_object(self, true)
+		handle_reposition()
