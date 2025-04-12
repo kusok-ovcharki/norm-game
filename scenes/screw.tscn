@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://6hvrlnmxotjk"]
+[gd_scene load_steps=4 format=3 uid="uid://6hvrlnmxotjk"]
 
 [ext_resource type="Script" uid="uid://bist6qo88pdmv" path="res://scripts/screw.gd" id="1_yt807"]
+[ext_resource type="Texture2D" uid="uid://djr35yjyvw8ad" path="res://assets/screwdriver/screw_top.png" id="2_tv40k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_omn3e"]
-radius = 64.0
+radius = 25.0
 
-[node name="Screw" type="StaticBody2D" groups=["dropable"]]
+[node name="Screw" type="StaticBody2D" groups=["droppable"]]
 script = ExtResource("1_yt807")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tv40k")
+offset = Vector2(0, 19)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_omn3e")

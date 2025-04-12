@@ -1,24 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://bicf825lx4l4c"]
+[gd_scene load_steps=5 format=3 uid="uid://bicf825lx4l4c"]
 
 [ext_resource type="Script" uid="uid://clakkxohl1b3f" path="res://scenes/screwdriver.gd" id="1_2mm6f"]
-[ext_resource type="Texture2D" uid="uid://pcbyj466g1n8" path="res://assets/screwdriver_side.png" id="2_m04ge"]
+[ext_resource type="Texture2D" uid="uid://buuoua7e826m0" path="res://assets/screwdriver/screwdriver_side.png" id="2_m04ge"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ddp"]
-size = Vector2(128, 128)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfk8t"]
+radius = 9.0
+height = 28.0
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_m04ge"]
+points = PackedVector2Array(8, -62, -10, -62, -25, -52, -33, 34, -23, 51, 0, 57, 21, 51, 31, 35, 22, -52)
 
 [node name="ScrewdriverObject" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_2mm6f")
 
+[node name="RayCast2DDown" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -3)
+target_position = Vector2(0, 28)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DUp" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, 25)
+target_position = Vector2(0, -28)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(9, 11)
+target_position = Vector2(-18, 0)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(-8, 11)
+target_position = Vector2(17, 0)
+collision_mask = 131072
+collide_with_areas = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_m04ge")
+offset = Vector2(0, 200)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["droppable"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_18ddp")
+[node name="ScrewdriverEndShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_qfk8t")
 
+[node name="Area2DHandle" type="Area2D" parent="."]
+
+[node name="ScrewdriverHandleShape" type="CollisionShape2D" parent="Area2DHandle"]
+position = Vector2(1, 146)
+shape = SubResource("ConvexPolygonShape2D_m04ge")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Area2DHandle" to="." method="_on_area_2d_handle_mouse_entered"]
+[connection signal="mouse_exited" from="Area2DHandle" to="." method="_on_area_2d_handle_mouse_exited"]
