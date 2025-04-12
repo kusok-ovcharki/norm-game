@@ -11,6 +11,8 @@ var queue_deselect := false
 var y_max := 220
 var y_min := 0
 
+@export var angle_radians := 0.3
+
 func _ready() -> void:
 	Dragging.object_selected.connect(select)
 
@@ -31,10 +33,14 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("click"):
 			var mouse_y = get_global_mouse_position().y
 			var new_y = clamp(mouse_y + drag_position_offset_y, y_min, y_max)
+			var new_x = global_position.x + x_offset(global_position.y - new_y)
 			#global_position.y = new_y
-			move_drawer(Vector2(global_position.x, new_y) - global_position)
+			move_drawer(Vector2(new_x, new_y) - global_position)
 		elif Input.is_action_just_released("click"):
 			handle_reposition()
+
+func x_offset(y: float):
+	return y * tan(angle_radians)
 
 func move_drawer(vector: Vector2):
 	var groups = get_groups()
