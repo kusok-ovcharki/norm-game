@@ -10,7 +10,7 @@ var dialogues = [
 var current_dialogue_index = 0
 
 func _ready():
-	$VBoxContainer/Panel/RichTextLabel.text = dialogues[current_dialogue_index]
+	$TextureRect/RichTextLabel.text = dialogues[current_dialogue_index]
 
 func _on_margin_container_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -18,26 +18,28 @@ func _on_margin_container_gui_input(event: InputEvent) -> void:
 			if current_dialogue_index < dialogues.size()-1:
 				current_dialogue_index += 1
 				print(current_dialogue_index)
-				$VBoxContainer/Panel/RichTextLabel.text = dialogues[current_dialogue_index]
+				$TextureRect/RichTextLabel.text = dialogues[current_dialogue_index]
 				if current_dialogue_index == dialogues.size()-1:
 					$NextButton.disabled = true
 				elif current_dialogue_index == 1:
 						$PrevButton.disabled = false
 
-func _on_prev_button_pressed() -> void:
-	current_dialogue_index -= 1
-	$VBoxContainer/Panel/RichTextLabel.text = dialogues[current_dialogue_index]
-	print(current_dialogue_index)
-	if current_dialogue_index == 0:
-		$PrevButton.disabled = true
-	if $NextButton.disabled == true:
-			$NextButton.disabled = false 
+func _on_texture_button_pressed() -> void:
+	if current_dialogue_index > 0:
+		current_dialogue_index -= 1
+		$TextureRect/RichTextLabel.text = dialogues[current_dialogue_index]
+		print(current_dialogue_index)
+		if current_dialogue_index == 0:
+			$PrevButton.disabled = true
+		if $NextButton.disabled == true:
+				$NextButton.disabled = false 
 
 func _on_next_button_pressed() -> void:
-	current_dialogue_index += 1
-	$VBoxContainer/Panel/RichTextLabel.text = dialogues[current_dialogue_index]
-	print(current_dialogue_index)
-	if current_dialogue_index == 0:
-		$PrevButton.disabled = true
-	if $NextButton.disabled == true:
-			$NextButton.disabled = false 
+	if current_dialogue_index < dialogues.size()-1:
+		current_dialogue_index += 1
+		$TextureRect/RichTextLabel.text = dialogues[current_dialogue_index]
+		print(current_dialogue_index)
+		if current_dialogue_index == dialogues.size()-1:
+			$NextButton.disabled = true
+		if $PrevButton.disabled == true:
+				$PrevButton.disabled = false 

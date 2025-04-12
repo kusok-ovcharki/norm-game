@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6hvrlnmxotjk"]
+
+[ext_resource type="Script" uid="uid://bist6qo88pdmv" path="res://scripts/screw.gd" id="1_yt807"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omn3e"]
+radius = 64.0
+
+[node name="Screw" type="StaticBody2D" groups=["dropable"]]
+script = ExtResource("1_yt807")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_omn3e")

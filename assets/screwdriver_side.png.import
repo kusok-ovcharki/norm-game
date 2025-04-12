@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baps6smtv88yh"
-path="res://.godot/imported/mouse smile.png-e0be2bf89a1ca53b67c5d4529e58e96c.ctex"
+uid="uid://pcbyj466g1n8"
+path="res://.godot/imported/screwdriver_side.png-81b8a9248caea46157b9a359defe6dd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mouse smile.png"
-dest_files=["res://.godot/imported/mouse smile.png-e0be2bf89a1ca53b67c5d4529e58e96c.ctex"]
+source_file="res://assets/screwdriver_side.png"
+dest_files=["res://.godot/imported/screwdriver_side.png-81b8a9248caea46157b9a359defe6dd2.ctex"]
 
 [params]
 
