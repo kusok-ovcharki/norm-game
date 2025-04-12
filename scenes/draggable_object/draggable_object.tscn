@@ -11,15 +11,47 @@ size = Vector2(128, 128)
 [node name="draggableObject" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_vcwhe")
 
+[node name="RayCast2DDown" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -64)
+target_position = Vector2(0, 128)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DUp" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, 64)
+target_position = Vector2(0, -128)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(64, 0)
+target_position = Vector2(-128, 0)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(-64, 0)
+target_position = Vector2(128, 0)
+collision_mask = 131072
+collide_with_areas = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(128, 128)
 texture = SubResource("CanvasTexture_18ddp")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 65537
+collision_mask = 65537
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_18ddp")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

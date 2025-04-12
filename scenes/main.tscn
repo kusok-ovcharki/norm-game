@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=7 format=3 uid="uid://bqntex0s5ahkv"]
 
 [ext_resource type="PackedScene" uid="uid://dux3pi6uc3cbt" path="res://scenes/drop_zone/drop_zone.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ink88vvv2xej" path="res://scenes/dragging_zone/dragging_zone.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://conr1u1wgn6b7" path="res://scenes/workbench_zone/workbench_zone.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://6g3t4to36euh" path="res://scenes/drawer_zone/drawer_zone.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d2s8dy8j4mye8" path="res://scenes/drawer_handle/drawer_handle.tscn" id="6_o6xl0"]
 
 [node name="main" type="Node2D"]
 
@@ -12,9 +16,11 @@ position = Vector2(649, 383)
 
 [node name="dropZone" parent="." instance=ExtResource("1_0wfyh")]
 position = Vector2(853, 352)
+scale = Vector2(0.5, 0.5)
 
 [node name="dropZone2" parent="." instance=ExtResource("1_0wfyh")]
 position = Vector2(856, 493)
+scale = Vector2(0.5, 0.5)
 id = "squareHole"
 
 [node name="dropZone3" parent="." instance=ExtResource("1_0wfyh")]
@@ -26,9 +32,40 @@ position = Vector2(348, 502)
 [node name="draggableObject2" parent="." instance=ExtResource("2_sugp2")]
 modulate = Color(1, 1, 0.145098, 1)
 z_index = 1
-position = Vector2(387, 182)
+position = Vector2(191, 355)
 
 [node name="draggableObject3" parent="." instance=ExtResource("2_sugp2")]
 modulate = Color(0.262745, 1, 1, 1)
 z_index = 2
-position = Vector2(677, 146)
+position = Vector2(720, 587)
+
+[node name="draggingZone" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(1086, 293)
+scale = Vector2(70, 70)
+
+[node name="draggingZone2" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(1173, -287)
+
+[node name="workbenchZone" parent="." instance=ExtResource("4_jyhfs")]
+position = Vector2(535, 480)
+scale = Vector2(3, 3)
+collision_layer = 196608
+collision_mask = 196609
+
+[node name="drawerZoneLeft" parent="." groups=["drawer_left"] instance=ExtResource("5_tbgi4")]
+position = Vector2(194, 116)
+collision_layer = 196608
+collision_mask = 196609
+
+[node name="drawerZoneCenter" parent="." groups=["drawer_center"] instance=ExtResource("5_tbgi4")]
+position = Vector2(551, 114)
+collision_layer = 196608
+collision_mask = 196609
+
+[node name="drawerZoneRigth" parent="." groups=["drawer_right"] instance=ExtResource("5_tbgi4")]
+position = Vector2(869, 112)
+collision_layer = 196608
+collision_mask = 196609
+
+[node name="drawerHandle" parent="." groups=["drawer_left"] instance=ExtResource("6_o6xl0")]
+position = Vector2(195, 222)

@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_omn3e"]
 radius = 64.0
 
-[node name="dropZone" type="StaticBody2D" groups=["dropable"]]
+[node name="dropZone" type="StaticBody2D" groups=["droppable"]]
 script = ExtResource("1_dlln2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -31,8 +31,12 @@ version_control/autoload_on_startup=true
 
 [global_group]
 
-dropable=""
 draggable=""
+dragging_zone=""
+drawer_left=""
+drawer_center=""
+drawer_right=""
+droppable=""
 
 [input]
 
