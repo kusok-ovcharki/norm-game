@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://conr1u1wgn6b7"]
+[gd_scene load_steps=10 format=3 uid="uid://conr1u1wgn6b7"]
 
 [ext_resource type="PackedScene" uid="uid://ink88vvv2xej" path="res://scenes/dragging_zone/dragging_zone.tscn" id="1_msblk"]
 [ext_resource type="Texture2D" uid="uid://dpkv5lafnwsg" path="res://assets/table/table.png" id="2_pe8ml"]
+[ext_resource type="Texture2D" uid="uid://dvvwa8sfhys8d" path="res://assets/table/table_closed_ref.png" id="3_ymqtj"]
+[ext_resource type="Texture2D" uid="uid://cti13mp0m3mkw" path="res://assets/table/top.png" id="4_4cpx4"]
+[ext_resource type="Texture2D" uid="uid://ew6ufo3y8pdw" path="res://assets/table/lamp.png" id="5_4cpx4"]
+[ext_resource type="Texture2D" uid="uid://c3rg67jnch7aj" path="res://assets/table/shadow.png" id="6_m2x1f"]
+[ext_resource type="Texture2D" uid="uid://prpwtgnqsfko" path="res://assets/table/table_opened_ref.png" id="7_q5xum"]
 
 [sub_resource type="GDScript" id="GDScript_msblk"]
 script/source = "extends \"res://scenes/dragging_zone/dragging_zone.gd\"
@@ -13,12 +18,39 @@ radius = 136.0
 [node name="workbenchZone" instance=ExtResource("1_msblk")]
 script = SubResource("GDScript_msblk")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Tabletop" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_pe8ml")
 
 [node name="CollisionPolygon2D" parent="." index="1" groups=["dragging_zone"]]
-polygon = PackedVector2Array(-556, -164, -583, 339, 590, 338, 562, -166)
+polygon = PackedVector2Array(-560, -167, -587, 339, 590, 338, 562, -166)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+visible = false
 position = Vector2(679, -118)
 shape = SubResource("CircleShape2D_pe8ml")
+
+[node name="TableClosedRef" type="Sprite2D" parent="." index="3"]
+visible = false
+texture = ExtResource("3_ymqtj")
+
+[node name="Top" type="Sprite2D" parent="." index="4"]
+z_index = 1100
+z_as_relative = false
+position = Vector2(0, -346)
+texture = ExtResource("4_4cpx4")
+
+[node name="Lamp" type="Sprite2D" parent="." index="5"]
+z_index = 2100
+z_as_relative = false
+position = Vector2(459, -90)
+texture = ExtResource("5_4cpx4")
+
+[node name="Shadow" type="Sprite2D" parent="." index="6"]
+z_index = 5
+z_as_relative = false
+texture = ExtResource("6_m2x1f")
+
+[node name="TableOpenedRef" type="Sprite2D" parent="." index="7"]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+texture = ExtResource("7_q5xum")

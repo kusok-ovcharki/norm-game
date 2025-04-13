@@ -1,37 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf1rd0hoxdgga"]
+[gd_scene load_steps=5 format=3 uid="uid://cf1rd0hoxdgga"]
 
 [ext_resource type="PackedScene" uid="uid://6g3t4to36euh" path="res://scenes/drawer_zone/drawer_zone.tscn" id="1_e54wn"]
-[ext_resource type="Texture2D" uid="uid://k1aing88atyk" path="res://assets/table/drawer_3.png" id="2_alhih"]
 [ext_resource type="PackedScene" uid="uid://d2s8dy8j4mye8" path="res://scenes/drawer_handle/drawer_handle.tscn" id="3_0rcpa"]
+[ext_resource type="Texture2D" uid="uid://i8rxutb4lstj" path="res://assets/table/drawer_right_body.png" id="4_xd2oq"]
+[ext_resource type="Texture2D" uid="uid://xoky3ni21gwt" path="res://assets/table/drawer_right_face.png" id="5_3dth7"]
 
 [node name="drawerZoneCenter" groups=["drawer_right"] instance=ExtResource("1_e54wn")]
 
-[node name="Sprite2DBody" type="Sprite2D" parent="." index="0"]
+[node name="DrawerRightBody" type="Sprite2D" parent="." index="0"]
 z_index = 10
 z_as_relative = false
-texture = ExtResource("2_alhih")
-centered = false
-offset = Vector2(-182, -130)
+texture = ExtResource("4_xd2oq")
+offset = Vector2(0, -47)
 region_enabled = true
-region_rect = Rect2(0, 0, 365, 158)
+region_rect = Rect2(0, 0, 365, 165)
 
-[node name="CollisionPolygon2D" parent="." index="1" groups=["drawer_right"]]
+[node name="DrawerRightTupoyKusok" type="Sprite2D" parent="." index="1"]
+z_index = 1000
+z_as_relative = false
+texture = ExtResource("4_xd2oq")
+offset = Vector2(0, 83.5)
+region_enabled = true
+region_rect = Rect2(0, 165, 365, 96)
+
+[node name="CollisionPolygon2D" parent="." index="2" groups=["drawer_right"]]
 z_index = 10
 z_as_relative = false
+position = Vector2(0, 2)
 polygon = PackedVector2Array(-132, -164, -113, 22, 101, 23, 70, -164)
 
-[node name="Sprite2DFace" type="Sprite2D" parent="." index="2"]
-z_index = 1000
+[node name="DrawerRightFace" type="Sprite2D" parent="." index="3"]
+z_index = 1010
 z_as_relative = false
-texture = ExtResource("2_alhih")
-centered = false
-offset = Vector2(-182, 28)
-region_enabled = true
-region_rect = Rect2(0, 158, 365, 103)
+texture = ExtResource("5_3dth7")
 
-[node name="drawerHandle" parent="." index="3" groups=["drawer_right"] instance=ExtResource("3_0rcpa")]
-z_index = 1000
+[node name="drawerHandle" parent="." index="4" groups=["drawer_right"] instance=ExtResource("3_0rcpa")]
+z_index = 1011
 z_as_relative = false
 position = Vector2(3, 90)
-y_min = 60
+y_max = 223
+y_min = 63
 angle_radians = -0.157
