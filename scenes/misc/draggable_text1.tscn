@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ho6nqt6nfuu"]
+
+[ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="1_5leuf"]
+[ext_resource type="FontFile" uid="uid://dm6bmw46diga" path="res://assets/ofont.ru_Ura Bum Bum SP.ttf" id="2_xuglf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuglf"]
+size = Vector2(70, 40)
+
+[node name="draggableText1" instance=ExtResource("1_5leuf")]
+target_zone_id = ""
+
+[node name="RayCast2DSE" parent="." index="0"]
+position = Vector2(-34, -22)
+target_position = Vector2(69, 40)
+
+[node name="RayCast2DNW" parent="." index="1"]
+position = Vector2(-35, 17)
+target_position = Vector2(70, -40)
+
+[node name="RayCast2DNE" parent="." index="2"]
+position = Vector2(35, 17)
+target_position = Vector2(-69, -39)
+
+[node name="RayCast2DSW" parent="." index="3"]
+position = Vector2(35, -23)
+target_position = Vector2(-69, 40)
+
+[node name="Sprite2D" parent="." index="4"]
+visible = false
+
+[node name="Label" type="Label" parent="." index="5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -27.0
+offset_right = 31.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("2_xuglf")
+theme_override_font_sizes/font_size = 48
+text = "Мы"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_xuglf")

@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=12 format=3 uid="uid://bqntex0s5ahkv"]
 
 [ext_resource type="PackedScene" uid="uid://conr1u1wgn6b7" path="res://scenes/workbench_zone/workbench_zone.tscn" id="1_p1srv"]
 [ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_brohc"]
 [ext_resource type="PackedScene" uid="uid://2hn8jko0p4rn" path="res://scenes/drawer_zone/left/drawer_zone_left.tscn" id="3_s3w1g"]
 [ext_resource type="PackedScene" uid="uid://drrser6wvbibq" path="res://scenes/drawer_zone/center/drawer_zone_center.tscn" id="4_kyns8"]
 [ext_resource type="PackedScene" uid="uid://cf1rd0hoxdgga" path="res://scenes/drawer_zone/right/drawer_zone_right.tscn" id="5_pcomm"]
-[ext_resource type="PackedScene" uid="uid://b05opolca32j1" path="res://scenes/misc/kusok_mejdu_yaschikami.tscn" id="6_brohc"]
+[ext_resource type="Texture2D" uid="uid://bxu7ykh3bcwym" path="res://assets/table/kusok_mejdu_yaschikami_right.png" id="6_s3w1g"]
+[ext_resource type="Texture2D" uid="uid://b606yh240moe7" path="res://assets/table/kusok_mejdu_yaschikami_left.png" id="7_kyns8"]
+[ext_resource type="PackedScene" uid="uid://1ho6nqt6nfuu" path="res://scenes/misc/draggable_text1.tscn" id="8_kyns8"]
+[ext_resource type="PackedScene" uid="uid://b8d45sfwklff5" path="res://scenes/misc/draggable_text2.tscn" id="9_pobej"]
+[ext_resource type="PackedScene" uid="uid://cioafkbek7tvj" path="res://scenes/misc/draggable_text3.tscn" id="10_u2c0s"]
+[ext_resource type="PackedScene" uid="uid://nanjqw00d4py" path="res://scenes/misc/draggable_text4.tscn" id="11_u2c0s"]
 
 [node name="WorkbenchScene" type="Node2D"]
 
@@ -13,6 +18,7 @@
 position = Vector2(640, 360)
 
 [node name="draggableObject4" parent="." instance=ExtResource("2_brohc")]
+visible = false
 modulate = Color(1, 0.231373, 1, 1)
 z_index = 1
 position = Vector2(502, 496)
@@ -22,11 +28,13 @@ draggingDisabled = true
 position = Vector2(348, 502)
 
 [node name="draggableObject2" parent="." instance=ExtResource("2_brohc")]
+visible = false
 modulate = Color(1, 1, 0.145098, 1)
 z_index = 1
 position = Vector2(191, 502)
 
 [node name="draggableObject3" parent="." instance=ExtResource("2_brohc")]
+visible = false
 modulate = Color(0.262745, 1, 1, 1)
 z_index = 2
 position = Vector2(648, 491)
@@ -40,5 +48,34 @@ position = Vector2(638, -53)
 [node name="drawerZoneRight" parent="." instance=ExtResource("5_pcomm")]
 position = Vector2(1011, -27)
 
-[node name="KusokMejduYaschikami" parent="." instance=ExtResource("6_brohc")]
-position = Vector2(636, 40)
+[node name="KusokMejduYaschikamiRight" type="Sprite2D" parent="."]
+z_index = 1005
+z_as_relative = false
+position = Vector2(861, 39)
+texture = ExtResource("6_s3w1g")
+
+[node name="KusokMejduYaschikamiLeft" type="Sprite2D" parent="."]
+z_index = 1005
+z_as_relative = false
+position = Vector2(425, 40)
+texture = ExtResource("7_kyns8")
+
+[node name="draggableText1" parent="." instance=ExtResource("8_kyns8")]
+z_index = 100
+z_as_relative = false
+position = Vector2(640, 436)
+
+[node name="draggableText2" parent="." instance=ExtResource("9_pobej")]
+z_index = 101
+z_as_relative = false
+position = Vector2(294, -84)
+
+[node name="draggableText3" parent="." instance=ExtResource("10_u2c0s")]
+z_index = 102
+z_as_relative = false
+position = Vector2(644, -88)
+
+[node name="draggableText4" parent="." instance=ExtResource("11_u2c0s")]
+z_index = 103
+z_as_relative = false
+position = Vector2(994, -81)

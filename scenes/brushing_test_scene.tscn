@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmciw5r0116h3"]
+[gd_scene load_steps=8 format=3 uid="uid://cmciw5r0116h3"]
 
 [ext_resource type="PackedScene" uid="uid://db0g8ejsc6rlo" path="res://scenes/brushable_object/brushable_object.tscn" id="2_dhquk"]
 [ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_e035w"]
 [ext_resource type="PackedScene" uid="uid://dux3pi6uc3cbt" path="res://scenes/drop_zone/drop_zone.tscn" id="3_dhquk"]
 [ext_resource type="Texture2D" uid="uid://buuoua7e826m0" path="res://assets/screwdriver/screwdriver_side.png" id="3_rsuem"]
 [ext_resource type="Texture2D" uid="uid://ch6mvr7lbepyu" path="res://assets/1screen/rabbit.png" id="4_55wjw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_18ddp"]
+specular_color = Color(0.880975, 0.310563, 0.877926, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ddp"]
+size = Vector2(128, 128)
 
 [node name="BrushingTestScene" type="Node2D"]
 
@@ -18,6 +24,12 @@ position = Vector2(852, 360)
 target_zone_if_cleaned = "onlyCleaned"
 normal_texture = ExtResource("3_rsuem")
 hover_texture = ExtResource("4_55wjw")
+
+[node name="Sprite2D" parent="brushableObject" index="4"]
+texture = SubResource("CanvasTexture_18ddp")
+
+[node name="CollisionShape2D" parent="brushableObject/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_18ddp")
 
 [node name="dropZone" parent="." instance=ExtResource("3_dhquk")]
 position = Vector2(466, 134)

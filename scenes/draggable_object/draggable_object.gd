@@ -37,7 +37,7 @@ func select(object: Node2D):
 		return
 	if object == self:
 		draggable = true
-		scale = Vector2(1.05, 1.05)
+		scale = Vector2(1.2, 1.2)
 	else:
 		draggable = false
 		scale = Vector2(1, 1)

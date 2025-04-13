@@ -42,7 +42,7 @@ texture = ExtResource("4_4cpx4")
 [node name="Lamp" type="Sprite2D" parent="." index="5"]
 z_index = 2100
 z_as_relative = false
-position = Vector2(459, -90)
+position = Vector2(491, -90)
 texture = ExtResource("5_4cpx4")
 
 [node name="Shadow" type="Sprite2D" parent="." index="6"]
