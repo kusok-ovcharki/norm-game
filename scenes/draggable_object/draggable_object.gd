@@ -25,6 +25,9 @@ var tween: Tween
 
 @onready var area := $Area2D
 
+@onready var pickup_sound = $PickupSound
+@onready var drop_sound = $DropSound
+
 func _ready() -> void:
 	Dragging.object_selected.connect(select)
 	for group in areaGroups:
@@ -37,10 +40,8 @@ func select(object: Node2D):
 		return
 	if object == self:
 		draggable = true
-		scale = Vector2(1.2, 1.2)
 	else:
 		draggable = false
-		scale = Vector2(1, 1)
 
 func _physics_process(delta: float) -> void:
 	var collisions = [
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 			initial_position = global_position
 			drag_position_offset = global_position - get_global_mouse_position()
 			Dragging.drag_object_start(self)
+			pickup_feedback()
 		if Input.is_action_pressed("click"):
 			global_position = get_global_mouse_position() + drag_position_offset
 		elif Input.is_action_just_released("click"):
@@ -64,6 +66,7 @@ func _process(delta: float) -> void:
 
 
 func handle_reposition():
+	drop_feedback()
 	Dragging.drag_object_end(self)
 	if is_inside_drop_zone():
 		var target_zone = find_target_zone()
@@ -110,6 +113,16 @@ func find_target_zone() -> Node2D:
 
 func move(vector: Vector2):
 	global_position += vector
+	
+func pickup_feedback():
+	scale = Vector2(1.2, 1.2)
+	pickup_sound.volume_db = linear_to_db(Settings.volume / 4)
+	pickup_sound.play()
+	
+func drop_feedback():
+	scale = Vector2(1, 1)
+	drop_sound.volume_db = linear_to_db(Settings.volume / 2)
+	drop_sound.play()
 
 func _on_area_2d_mouse_entered() -> void:
 	if draggingDisabled:

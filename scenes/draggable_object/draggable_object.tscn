@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2becqsav5kij"]
+[gd_scene load_steps=4 format=3 uid="uid://c2becqsav5kij"]
 
 [ext_resource type="Script" uid="uid://b7y2le7gmsyr" path="res://scenes/draggable_object/draggable_object.gd" id="1_vcwhe"]
+[ext_resource type="AudioStream" uid="uid://dnysgslc8dua0" path="res://assets/drop_sound.mp3" id="2_6xp0f"]
+[ext_resource type="AudioStream" uid="uid://dltuk2i3nrjv6" path="res://assets/pickup_sound.mp3" id="2_7gage"]
 
 [node name="draggableObject" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_vcwhe")
+
+[node name="DropSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6xp0f")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7gage")
 
 [node name="RayCast2DSE" type="RayCast2D" parent="."]
 z_index = 1

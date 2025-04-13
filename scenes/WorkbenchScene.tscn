@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=14 format=3 uid="uid://bqntex0s5ahkv"]
 
 [ext_resource type="PackedScene" uid="uid://conr1u1wgn6b7" path="res://scenes/workbench_zone/workbench_zone.tscn" id="1_p1srv"]
 [ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_brohc"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cioafkbek7tvj" path="res://scenes/misc/draggable_text3.tscn" id="10_u2c0s"]
 [ext_resource type="PackedScene" uid="uid://nanjqw00d4py" path="res://scenes/misc/draggable_text4.tscn" id="11_u2c0s"]
 [ext_resource type="PackedScene" uid="uid://drrhmmcornseb" path="res://core/game_audio.tscn" id="12_ja1sj"]
+[ext_resource type="PackedScene" uid="uid://bvm6vtv6cojv" path="res://scenes/misc/oil_pan.tscn" id="13_08p47"]
 
 [node name="WorkbenchScene" type="Node2D"]
 
@@ -26,6 +27,7 @@ position = Vector2(502, 496)
 draggingDisabled = true
 
 [node name="draggableObject" parent="." instance=ExtResource("2_brohc")]
+visible = false
 position = Vector2(348, 502)
 
 [node name="draggableObject2" parent="." instance=ExtResource("2_brohc")]
@@ -64,21 +66,26 @@ texture = ExtResource("7_kyns8")
 [node name="draggableText1" parent="." instance=ExtResource("8_kyns8")]
 z_index = 100
 z_as_relative = false
-position = Vector2(640, 436)
+position = Vector2(283, -72)
 
 [node name="draggableText2" parent="." instance=ExtResource("9_pobej")]
 z_index = 101
 z_as_relative = false
-position = Vector2(294, -84)
+position = Vector2(633, -78)
 
 [node name="draggableText3" parent="." instance=ExtResource("10_u2c0s")]
 z_index = 102
 z_as_relative = false
-position = Vector2(644, -88)
+position = Vector2(997, -81)
 
 [node name="draggableText4" parent="." instance=ExtResource("11_u2c0s")]
 z_index = 103
 z_as_relative = false
-position = Vector2(994, -81)
+position = Vector2(1164, 626)
 
 [node name="GameAudio" parent="." instance=ExtResource("12_ja1sj")]
+
+[node name="oilPan" parent="." instance=ExtResource("13_08p47")]
+z_index = 105
+z_as_relative = false
+position = Vector2(1128, 567)
