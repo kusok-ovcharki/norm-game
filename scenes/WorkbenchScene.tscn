@@ -16,6 +16,7 @@ position = Vector2(640, 360)
 modulate = Color(1, 0.231373, 1, 1)
 z_index = 1
 position = Vector2(502, 496)
+draggingDisabled = true
 
 [node name="draggableObject" parent="." instance=ExtResource("2_brohc")]
 position = Vector2(348, 502)

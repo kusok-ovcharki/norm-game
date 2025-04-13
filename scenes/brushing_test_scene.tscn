@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmciw5r0116h3"]
+
+[ext_resource type="PackedScene" uid="uid://db0g8ejsc6rlo" path="res://scenes/brushable_object/brushable_object.tscn" id="2_dhquk"]
+[ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_e035w"]
+[ext_resource type="PackedScene" uid="uid://dux3pi6uc3cbt" path="res://scenes/drop_zone/drop_zone.tscn" id="3_dhquk"]
+[ext_resource type="Texture2D" uid="uid://buuoua7e826m0" path="res://assets/screwdriver/screwdriver_side.png" id="3_rsuem"]
+[ext_resource type="Texture2D" uid="uid://ch6mvr7lbepyu" path="res://assets/1screen/rabbit.png" id="4_55wjw"]
+
+[node name="BrushingTestScene" type="Node2D"]
+
+[node name="draggableObject" parent="." instance=ExtResource("2_e035w")]
+position = Vector2(244, 234)
+areaGroups = Array[StringName]([&"brush"])
+areaLayers = Array[int]([8])
+
+[node name="brushableObject" parent="." instance=ExtResource("2_dhquk")]
+position = Vector2(852, 360)
+target_zone_if_cleaned = "onlyCleaned"
+normal_texture = ExtResource("3_rsuem")
+hover_texture = ExtResource("4_55wjw")
+
+[node name="dropZone" parent="." instance=ExtResource("3_dhquk")]
+position = Vector2(466, 134)
+id = "onlyCleaned"
+
+[editable path="brushableObject"]

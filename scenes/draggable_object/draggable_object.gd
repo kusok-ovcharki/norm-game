@@ -1,4 +1,5 @@
 extends Node2D
+class_name DraggableObject
 
 const snap_duration := 0.1
 
