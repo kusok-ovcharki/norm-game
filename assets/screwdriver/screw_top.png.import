@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clym6mx7s70so"
-path="res://.godot/imported/screwdriver_top.png-4ef031497c24c819d4fa80c97ba6e7b4.ctex"
+uid="uid://djr35yjyvw8ad"
+path="res://.godot/imported/screw_top.png-e11e83102415b6c82d3c711eab13b546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/screwdriver_top.png"
-dest_files=["res://.godot/imported/screwdriver_top.png-4ef031497c24c819d4fa80c97ba6e7b4.ctex"]
+source_file="res://assets/screwdriver/screw_top.png"
+dest_files=["res://.godot/imported/screw_top.png-e11e83102415b6c82d3c711eab13b546.ctex"]
 
 [params]
 

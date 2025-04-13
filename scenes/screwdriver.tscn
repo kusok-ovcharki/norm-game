@@ -1,24 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://lrjc77txokx"]
+[gd_scene load_steps=10 format=3 uid="uid://bicf825lx4l4c"]
 
-[ext_resource type="Script" path="res://scenes/screwdriver.gd" id="1_2mm6f"]
-[ext_resource type="Texture2D" uid="uid://pcbyj466g1n8" path="res://assets/screwdriver_side.png" id="2_m04ge"]
+[ext_resource type="Script" uid="uid://clakkxohl1b3f" path="res://scripts/screwdriver.gd" id="1_2mm6f"]
+[ext_resource type="Texture2D" uid="uid://dib52uio6vhmk" path="res://assets/screwdriver_animation/screwdriver_side.png" id="2_xmvqa"]
+[ext_resource type="Texture2D" uid="uid://cprxcldtpyc8k" path="res://assets/screwdriver_animation/screwdriver_top_1.png" id="3_68cad"]
+[ext_resource type="Texture2D" uid="uid://bfqhi4i7skyo0" path="res://assets/screwdriver_animation/screwdriver_top_2.png" id="4_hww68"]
+[ext_resource type="Texture2D" uid="uid://bvmd8gdiv0hb5" path="res://assets/screwdriver_animation/screwdriver_top_3.png" id="5_b0eyx"]
+[ext_resource type="Texture2D" uid="uid://cytc54hs5w3jb" path="res://assets/screwdriver_animation/screwdriver_top_4.png" id="6_x68xc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ddp"]
-size = Vector2(128, 128)
+[sub_resource type="SpriteFrames" id="SpriteFrames_38l80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xmvqa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_68cad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x68xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b0eyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hww68")
+}],
+"loop": true,
+"name": &"unscrewing",
+"speed": 5.0
+}]
 
-[node name="ScrewdriverObject" type="Node2D" groups=["draggable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfk8t"]
+radius = 9.0
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_m04ge"]
+points = PackedVector2Array(7, -76, -11, -76, -31, -63, -39, 37, -28, 56, -1, 66, 24, 58, 37, 38, 28, -65)
+
+[node name="ScrewdriverObject" type="Node2D" groups=["draggable", "screwdriver"]]
+position = Vector2(0, 7)
 script = ExtResource("1_2mm6f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m04ge")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -80)
+sprite_frames = SubResource("SpriteFrames_38l80")
+animation = &"unscrewing"
+offset = Vector2(0, 190)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["screwdriver"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_18ddp")
+[node name="ScrewdriverEndShape" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qfk8t")
 
+[node name="Area2DHandle" type="Area2D" parent="."]
+
+[node name="ScrewdriverHandleShape" type="CollisionShape2D" parent="Area2DHandle"]
+position = Vector2(1, 166)
+shape = SubResource("ConvexPolygonShape2D_m04ge")
+
+[node name="RayCast2DUp" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, 197)
+target_position = Vector2(0, -204)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DDown" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -3)
+target_position = Vector2(0, 200)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(-29, 149)
+target_position = Vector2(38, -140)
+collision_mask = 131072
+collide_with_areas = true
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(-9, 10)
+target_position = Vector2(37, 142)
+collision_mask = 131072
+collide_with_areas = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Area2DHandle" to="." method="_on_area_2d_handle_mouse_entered"]
+[connection signal="mouse_exited" from="Area2DHandle" to="." method="_on_area_2d_handle_mouse_exited"]

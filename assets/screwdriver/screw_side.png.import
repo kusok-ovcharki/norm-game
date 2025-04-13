@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pcbyj466g1n8"
-path="res://.godot/imported/screwdriver_side.png-81b8a9248caea46157b9a359defe6dd2.ctex"
+uid="uid://bqbv3kgf6hqau"
+path="res://.godot/imported/screw_side.png-60e2d997aa9a461c6f7621b43f54aacb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/screwdriver_side.png"
-dest_files=["res://.godot/imported/screwdriver_side.png-81b8a9248caea46157b9a359defe6dd2.ctex"]
+source_file="res://assets/screwdriver/screw_side.png"
+dest_files=["res://.godot/imported/screw_side.png-60e2d997aa9a461c6f7621b43f54aacb.ctex"]
 
 [params]
 

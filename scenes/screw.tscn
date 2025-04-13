@@ -1,12 +1,113 @@
-[gd_scene load_steps=3 format=3 uid="uid://6hvrlnmxotjk"]
+[gd_scene load_steps=11 format=3 uid="uid://6hvrlnmxotjk"]
 
-[ext_resource type="Script" path="res://scripts/screw.gd" id="1_yt807"]
+[ext_resource type="Script" uid="uid://bist6qo88pdmv" path="res://scripts/screw.gd" id="1_yt807"]
+[ext_resource type="Texture2D" uid="uid://djr35yjyvw8ad" path="res://assets/screwdriver/screw_top.png" id="2_tv40k"]
+[ext_resource type="Texture2D" uid="uid://bqbv3kgf6hqau" path="res://assets/screwdriver/screw_side.png" id="3_31g8h"]
+[ext_resource type="Texture2D" uid="uid://51ff8hoprrsw" path="res://assets/screwdriver/screw_top1.png" id="3_qicj3"]
+[ext_resource type="Texture2D" uid="uid://bpu06fwtjrmrg" path="res://assets/screwdriver/screw_top2.png" id="4_31g8h"]
+[ext_resource type="Texture2D" uid="uid://dktko5loxwbja" path="res://assets/screwdriver/screw_top3.png" id="5_7w67l"]
+[ext_resource type="Texture2D" uid="uid://gokv0yqoml0u" path="res://assets/screwdriver/screw_top4.png" id="6_l2xsv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqqvm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tv40k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_31g8h")
+}],
+"loop": true,
+"name": &"removed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qicj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l2xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7w67l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_31g8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qicj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l2xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7w67l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_31g8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qicj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l2xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7w67l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_31g8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l2xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7w67l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_31g8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qicj3")
+}],
+"loop": true,
+"name": &"unscrewing",
+"speed": 2.0
+}]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_omn3e"]
-radius = 64.0
+radius = 25.0
 
-[node name="Screw" type="StaticBody2D" groups=["droppable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_31g8h"]
+radius = 24.0208
+
+[node name="Screw" type="StaticBody2D" groups=["droppable", "screwdriver"]]
 script = ExtResource("1_yt807")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tv40k")
+offset = Vector2(0, 19)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dqqvm")
+animation = &"unscrewing"
+frame_progress = 0.261111
+offset = Vector2(0, 19)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_omn3e")
+
+[node name="Area2D" type="Area2D" parent="." groups=["screwdriver"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_31g8h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
