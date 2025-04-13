@@ -6,13 +6,32 @@
 
 [node name="drawerZoneLeft" groups=["drawer_left"] instance=ExtResource("1_56ubp")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2DBody" type="Sprite2D" parent="." index="0"]
+z_index = 10
+z_as_relative = false
 texture = ExtResource("2_cgm0b")
+centered = false
+offset = Vector2(-182, -159)
+region_enabled = true
+region_rect = Rect2(0, 0, 365, 159)
 
 [node name="CollisionPolygon2D" parent="." index="1" groups=["drawer_left"]]
+z_index = 10
+z_as_relative = false
 polygon = PackedVector2Array(-71, -186, -99, -5, 114, -7, 133, -186)
 
-[node name="drawerHandle" parent="." index="2" groups=["drawer_left"] instance=ExtResource("3_pak00")]
+[node name="Sprite2DFace" type="Sprite2D" parent="." index="2"]
+z_index = 1000
+z_as_relative = false
+texture = ExtResource("2_cgm0b")
+centered = false
+offset = Vector2(-182, 0)
+region_enabled = true
+region_rect = Rect2(0, 159, 365, 162.25)
+
+[node name="drawerHandle" parent="." index="3" groups=["drawer_left"] instance=ExtResource("3_pak00")]
+z_index = 1000
+z_as_relative = false
 position = Vector2(-1, 63)
 scale = Vector2(1.05, 1)
 y_min = 60
