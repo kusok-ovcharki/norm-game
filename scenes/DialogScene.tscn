@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=21 format=3 uid="uid://bqntex0s5ahkv"]
 
-[ext_resource type="Texture2D" uid="uid://d05h07udgfsoy" path="res://assets/1screen/bg.png" id="1_ta01q"]
-[ext_resource type="Texture2D" uid="uid://ch6mvr7lbepyu" path="res://assets/1screen/rabbit.png" id="2_bpgek"]
-[ext_resource type="Texture2D" uid="uid://bnkljohilam6v" path="res://assets/1screen/table.png" id="3_jqlnc"]
+[ext_resource type="Texture2D" uid="uid://36vcmmu1vbvu" path="res://assets/bg.png" id="1_ti55o"]
+[ext_resource type="Texture2D" uid="uid://dm3x2jgsa0lru" path="res://assets/characters/fox.png" id="2_anafn"]
+[ext_resource type="Texture2D" uid="uid://oty2h66snqsu" path="res://assets/characters/rabbit.png" id="3_sg6bi"]
+[ext_resource type="Texture2D" uid="uid://dc5egllbtkqdn" path="res://assets/table.png" id="4_emjdy"]
 [ext_resource type="Script" uid="uid://q35sm3swbgtn" path="res://scripts/control.gd" id="4_jqlnc"]
 [ext_resource type="Texture2D" uid="uid://cw2fwxjbrft46" path="res://ui/dialogue_base.png" id="5_6nd5d"]
-[ext_resource type="Script" uid="uid://baspywv4txbiv" path="res://scripts/margin_container.gd" id="5_ta01q"]
 [ext_resource type="FontFile" uid="uid://dm6bmw46diga" path="res://assets/ofont.ru_Ura Bum Bum SP.ttf" id="6_ljm0d"]
 [ext_resource type="Texture2D" uid="uid://dfiongwxe23u3" path="res://ui/back_arrow.png" id="8_sqrjp"]
 [ext_resource type="Texture2D" uid="uid://dgun83ptky1fp" path="res://ui/button.png" id="9_ljm0d"]
@@ -18,7 +18,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bpgek")
+"texture": ExtResource("3_sg6bi")
 }],
 "loop": true,
 "name": &"default",
@@ -33,69 +33,641 @@ corner_radius_top_right = 5
 [sub_resource type="CanvasTexture" id="CanvasTexture_4uqlb"]
 
 [sub_resource type="Animation" id="Animation_ljm0d"]
-length = 0.001
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Character2:position")
+tracks/0/path = NodePath("Fox:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(-0.133333, 0, 2.41667, 4.02667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-150, 344)]
-}
-
-[sub_resource type="Animation" id="Animation_6nd5d"]
-resource_name = "openning"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.94),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-150, 310), Vector2(600, 310)]
+"values": [Vector2(-199, 300), Vector2(-199, 300), Vector2(600, 300), Vector2(800, 300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Character2:position")
+tracks/1/path = NodePath("Rabbit:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345), Vector2(-150, 310), Vector2(-150, 345)]
+"values": [Vector2(-150, 346)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TextureRect/Label:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TextureRect/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/TextureRect/Label:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Лис"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/TextureRect/RichTextLabel:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Добрый день, мастер. Надеюсь, я не отрываю вас от важного дела?"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rabbit:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:color:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect:color:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ColorRect:color:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ColorRect:color:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Control/PrevButton:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Control/TextureRect:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Control/NextButton:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Control:modulate:r")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Control:modulate:g")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Control:modulate:b")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Control:modulate:a")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ti55o"]
+resource_name = "new_animation"
+
+[sub_resource type="Animation" id="Animation_6nd5d"]
+resource_name = "fox"
+length = 37.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rabbit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 3, 6.6, 12.3, 13.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 340), Vector2(240, 340), Vector2(600, 340), Vector2(600, 340), Vector2(600, 340), Vector2(240, 340)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rabbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340), Vector2(-150, 310), Vector2(-150, 340)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.8, 5.8, 6.8, 7.8, 8.8, 9.8, 10.8, 11.8, 15.8, 16.8, 17.8, 18.8, 19.8, 20.8, 21.8, 22.8, 23.8, 24.8, 25.8, 26.8, 27.8, 28.8, 31.2, 32.2, 33.2, 34.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}, {
+"args": [],
+"method": &"pause_animation"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12.9, 13.2, 14, 28.6, 29.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 330), Vector2(240, 330), Vector2(600, 310), Vector2(600, 310), Vector2(240, 310)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(13.3, 13.4, 13.5, 13.6, 13.7, 13.8, 14.1, 28.7, 28.8, 28.9, 29, 29.1, 29.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-150, 310), Vector2(-150, 330), Vector2(-150, 310), Vector2(-150, 330), Vector2(-150, 310), Vector2(-150, 330), Vector2(-150, 310), Vector2(-150, 310), Vector2(-150, 330), Vector2(-150, 310), Vector2(-150, 330), Vector2(-150, 310), Vector2(-150, 330)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fox:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(-0.1, 12.9, 29.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.1, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/TextureRect/RichTextLabel:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(4.2, 4.6, 5, 5.2, 5.6, 6, 6.2, 6.6, 7, 7.2, 7.6, 8, 8.2, 8.6, 9, 9.2, 9.6, 10, 10.2, 10.6, 11, 11.2, 11.6, 12, 12.2, 12.6, 13, 13.2, 15.2, 15.6, 16, 16.2, 16.6, 17, 17.2, 17.6, 18, 18.2, 18.6, 19, 19.2, 19.6, 20, 20.2, 20.6, 21, 21.2, 21.6, 21.975, 22.2, 22.6, 23, 23.2, 23.6, 24, 24.2, 24.6, 25, 25.2, 25.6, 26, 26.2, 26.6, 27, 27.2, 27.6, 28, 28.2, 28.6, 29, 29.2, 30.6, 31, 31.4, 31.6, 32, 32.4, 32.6, 33, 33.4, 33.6, 34, 34.4, 34.6)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/TextureRect/Label:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(4.2, 4.6, 5, 5.2, 5.5, 6, 6.2, 6.5, 7, 7.2, 7.5, 8, 8.2, 8.5, 9, 9.2, 9.5, 10, 10.2, 10.5, 11, 11.2, 11.5, 12, 12.2, 12.5, 13, 13.2, 15.2, 15.6, 16, 16.2, 16.5, 17, 17.2, 17.5, 18, 18.2, 18.5, 19, 19.2, 19.5, 20, 20.2, 20.5, 21, 21.2, 21.5, 23, 23.2, 23.5, 24, 24.2, 24.5, 25, 25.2, 25.5, 26, 26.2, 26.5, 27, 27.2, 27.5, 28, 28.2, 28.5, 29, 29.2, 30.6, 30.9, 34.4, 34.6)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/TextureRect/RichTextLabel:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(-0.2, 4.2, 5.2, 5.6, 6.2, 6.6, 7.2, 7.6, 8.2, 8.6, 9.2, 9.6, 10.2, 10.6, 11.2, 11.6, 12.2, 12.6, 13.2, 15.2, 15.6, 16.2, 16.6, 17.2, 17.6, 18.2, 18.6, 19.2, 19.6, 20.2, 20.6, 21.2, 21.6, 22.2, 22.6, 23.2, 23.6, 24.2, 24.6, 25.2, 25.6, 26.2, 26.6, 27.2, 27.6, 28.2, 28.6, 29.2, 30.6, 31, 31.6, 32, 32.6, 33, 33.6, 34, 34.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "Привет, мастер... Можно тебя на чуть-чуть отвлечь?", "", "Конечно, заходи! Что там у тебя?", "", "Мой телескоп  сломался как раз перед метеоритным дождём!", "", "Опять ты его на лужайке забыл? Говорил же — роса и телескопы не дружат.", "", "Да не в этом дело! Вчера ночью я точно видел, как что-то двигалось между орбитами Марса и Юпитера! Но этот старичок… *стучит по телескопу*", "", "Линза расшаталась, зеркало в пыли... и, о чудо, — *достаёт из трубы застрявший желудь* — ещё и \"астрономический артефакт\" внутри.", "", "*Смущённо чешет затылок* Э-э... Это же не мой... Наверное...", "", "Ладно, завтра вечером забирай.", "", "Уррраа! Спасибо! Как раз успею на пик метеорного потока! ", "", "", "Добрый день, мастер. Надеюсь, я не отрываю вас от важного дела?", "", "Чарльз? Неожиданно. Вы обычно присылаете своих помощников за ремонтом.", "", "Этот артефакт… требует особого обращения. ", "", "Хм. Дерево, шестерёнки… странный домик. Для чего он?", "", "По моим исследованиям, это «часы» эпохи безхвостых. Они измеряли… что-то. ", "", "Согласно записям, наши предки были одержимы измерением чего-то, что они называли \"временем\". ", "", "Это устройство должно было... *перелистывает записную книжку* ...\"отсчитывать мгновения их бренного существования\". ", "", "Ну или измерять температуру супа.", "", "*Морщится* безхвостые?", "", "*Кивает* Да, древняя раса. Без хвоста. Без шерсти. Совсем голые. ", "", "*Смеется* Ха-ха, Звучит как больная фантазия.", "", "Тем не менее, они существовали. И это — одно из их изобретений. Говорят, оно двигалось само.", "", "Ну, сейчас точно не двигается.", "", "Потому и принёс вам. Я хочу, чтобы моя коллекция пополнилась работающим артефактом. Представьте, это большой шаг к пониманию их мира.", "", "", "*Ворчит* Безхвостые... Ну и ну.", "", "Хм... Интересная штуковина. Но зачем Безхвостым понадобилось это «время»? Ещё и запертое в коробочки.", "", "“отсчитывать мгновения их существования” Мне прекрасно живётся и без всякого отсчёта. Просыпаюсь, когда высыпаюсь. Работаю, пока интересно. Ем, когда проголодался… Просто и понятно.", "", "Ладно. Пусть ваше «время» останется здесь. А мы… уж как-нибудь без него разберёмся.", ""]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/TextureRect/Label:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(-0.2, 4.2, 5.2, 5.5, 6.2, 6.5, 7.2, 7.5, 8.2, 8.5, 9.2, 9.5, 10.2, 10.5, 11.2, 11.5, 12.2, 12.5, 13.2, 15.2, 15.6, 16.2, 16.5, 17.2, 17.5, 18.2, 18.5, 19.2, 19.5, 20.2, 20.5, 21.2, 21.5, 22.9, 23.2, 23.5, 24.2, 24.5, 25.2, 25.5, 26.2, 26.5, 27.2, 27.5, 28.2, 28.5, 29.2, 30.6, 30.9, 34.3, 34.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "Зайка", "", "Вы", "", "Зайка", "", "Вы", "", "Зайка", "", "Вы", "", "Зайка", "", "Вы", "", "Зайка", "", "", "Лис", "", "Вы", "", "Лис", "", "Вы", "", "Лис", "", "Лис", "", "Лис", "Лис", "", "Вы", "", "Лис", "", "Вы", "", "Лис", "", "Вы", "", "Лис", "", "", "Вы", "Вы", ""]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Rabbit:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(-0.1, 1.5, 13.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ColorRect:color:r")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect:color:g")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ColorRect:color:b")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColorRect:color:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ColorRect:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(-0.2, 2.4, 33.9, 37.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Control/PrevButton:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 5.6, 12.7, 16.5, 28.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Control/TextureRect:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Control/NextButton:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 4.5, 34.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Control:modulate:r")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(34.9, 36)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Control:modulate:g")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(34.9, 36)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Control:modulate:b")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(34.9, 36)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Control:modulate:a")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(34.9, 36)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqrjp"]
 _data = {
 &"RESET": SubResource("Animation_ljm0d"),
-&"openning": SubResource("Animation_6nd5d")
+&"fox": SubResource("Animation_6nd5d"),
+&"new_animation": SubResource("Animation_ti55o")
 }
 
 [node name="DialogScene" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("1_ta01q")
+texture = ExtResource("1_ti55o")
 
-[node name="Character2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-150, 344)
+[node name="Fox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-199, 300)
+texture = ExtResource("2_anafn")
+
+[node name="Rabbit" type="AnimatedSprite2D" parent="."]
+position = Vector2(-150, 346)
 sprite_frames = SubResource("SpriteFrames_ljm0d")
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(640, 480)
-texture = ExtResource("3_jqlnc")
+texture = ExtResource("4_emjdy")
 
 [node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -126,7 +698,7 @@ theme_override_colors/font_color = Color(0.670588, 0.309804, 0.168627, 1)
 theme_override_fonts/font = ExtResource("6_ljm0d")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_60wqe")
-text = "Зайка"
+text = "Лис"
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect"]
@@ -134,11 +706,11 @@ layout_mode = 0
 offset_left = 116.0
 offset_top = 73.0
 offset_right = 1121.0
-offset_bottom = 202.0
+offset_bottom = 232.0
 theme_override_colors/default_color = Color(0.670588, 0.309804, 0.168627, 1)
 theme_override_fonts/normal_font = ExtResource("6_ljm0d")
 theme_override_font_sizes/normal_font_size = 39
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+text = "Добрый день, мастер. Надеюсь, я не отрываю вас от важного дела?"
 scroll_active = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -150,7 +722,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-script = ExtResource("5_ta01q")
 
 [node name="PrevButton" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -158,7 +729,6 @@ offset_left = 70.0
 offset_top = 648.0
 offset_right = 114.0
 offset_bottom = 696.0
-disabled = true
 texture_normal = ExtResource("8_sqrjp")
 texture_pressed = ExtResource("10_60wqe")
 texture_hover = ExtResource("11_6r5y3")
@@ -175,10 +745,18 @@ texture_pressed = ExtResource("12_4uqlb")
 texture_hover = ExtResource("13_ti55o")
 texture_disabled = ExtResource("12_4uqlb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_sqrjp")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1290.0
+offset_bottom = 730.0
+color = Color(0, 0, 0, 0)
 
 [connection signal="gui_input" from="Control/MarginContainer" to="Control" method="_on_margin_container_gui_input"]
 [connection signal="pressed" from="Control/PrevButton" to="Control" method="_on_texture_button_pressed"]
