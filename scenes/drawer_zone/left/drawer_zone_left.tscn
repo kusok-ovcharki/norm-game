@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://2hn8jko0p4rn"]
+
+[ext_resource type="PackedScene" uid="uid://6g3t4to36euh" path="res://scenes/drawer_zone/drawer_zone.tscn" id="1_56ubp"]
+[ext_resource type="Texture2D" uid="uid://dxsxswv4tjn1l" path="res://assets/table/drawer_left_body.png" id="3_a48ui"]
+[ext_resource type="PackedScene" uid="uid://d2s8dy8j4mye8" path="res://scenes/drawer_handle/drawer_handle.tscn" id="3_pak00"]
+[ext_resource type="Texture2D" uid="uid://c8xc4jvrbp5os" path="res://assets/table/drawer_left_face.png" id="5_13y30"]
+
+[node name="drawerZoneLeft" groups=["drawer_left"] instance=ExtResource("1_56ubp")]
+
+[node name="DrawerLeftBody" type="Sprite2D" parent="." index="0"]
+z_index = 10
+z_as_relative = false
+texture = ExtResource("3_a48ui")
+offset = Vector2(0, -76.5)
+region_enabled = true
+region_rect = Rect2(0, 0, 365, 166)
+
+[node name="DrawerLeftTupoyKusok" type="Sprite2D" parent="." index="1"]
+z_index = 1000
+z_as_relative = false
+position = Vector2(0, -2)
+texture = ExtResource("3_a48ui")
+offset = Vector2(0, 84)
+region_enabled = true
+region_rect = Rect2(0, 165, 365, 154)
+
+[node name="CollisionPolygon2D" parent="." index="2" groups=["drawer_left"]]
+z_index = 10
+z_as_relative = false
+polygon = PackedVector2Array(-71, -186, -99, -5, 114, -7, 133, -186)
+
+[node name="DrawerLeftFace" type="Sprite2D" parent="." index="3"]
+z_index = 1010
+z_as_relative = false
+position = Vector2(0, -1)
+texture = ExtResource("5_13y30")
+
+[node name="drawerHandle" parent="." index="4" groups=["drawer_left"] instance=ExtResource("3_pak00")]
+z_index = 1011
+z_as_relative = false
+position = Vector2(-1, 63)
+scale = Vector2(1.05, 1)
+y_max = 226
+y_min = 66
+angle_radians = 0.157

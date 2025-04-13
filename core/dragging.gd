@@ -4,6 +4,8 @@ const max_z_index := 999
 
 const min_z_index := 100
 
+const dragged_z_index := 2000
+
 var is_dragging := false;
 
 var hovered_objects: Array[Node2D] = []
@@ -22,10 +24,14 @@ func drag_object_start(object: Node2D):
 			node.z_index -= 1
 
 	is_dragging = true
-	object.z_index = max_z_index
+	object.z_index = dragged_z_index
 
-func drag_object_end(_object: Node2D):
+func drag_object_end(object: Node2D):
 	is_dragging = false
+	if object.is_in_group("draggable"):
+		object.z_index = max_z_index
+	else:
+		object.z_index = selected_object_z_index
 
 func select_object(object: Node2D):
 	if is_dragging && selected_object == object:

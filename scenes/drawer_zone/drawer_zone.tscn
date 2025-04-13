@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://6g3t4to36euh"]
+[gd_scene load_steps=3 format=3 uid="uid://6g3t4to36euh"]
 
 [ext_resource type="PackedScene" uid="uid://ink88vvv2xej" path="res://scenes/dragging_zone/dragging_zone.tscn" id="1_fcp7c"]
 [ext_resource type="Script" uid="uid://deee4rmpy2p05" path="res://scenes/drawer_zone/drawer_zone.gd" id="2_bku0f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bku0f"]
-size = Vector2(200, 200)
-
 [node name="drawerZone" instance=ExtResource("1_fcp7c")]
 script = ExtResource("2_bku0f")
-
-[node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource("RectangleShape2D_bku0f")

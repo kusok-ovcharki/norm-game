@@ -11,31 +11,31 @@ size = Vector2(128, 128)
 [node name="draggableObject" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_vcwhe")
 
-[node name="RayCast2DDown" type="RayCast2D" parent="."]
+[node name="RayCast2DSE" type="RayCast2D" parent="."]
 z_index = 1
-position = Vector2(0, -64)
-target_position = Vector2(0, 128)
+position = Vector2(-64, -64)
+target_position = Vector2(128, 128)
 collision_mask = 131072
 collide_with_areas = true
 
-[node name="RayCast2DUp" type="RayCast2D" parent="."]
+[node name="RayCast2DNW" type="RayCast2D" parent="."]
 z_index = 1
-position = Vector2(0, 64)
-target_position = Vector2(0, -128)
+position = Vector2(-64, 64)
+target_position = Vector2(128, -128)
 collision_mask = 131072
 collide_with_areas = true
 
-[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+[node name="RayCast2DNE" type="RayCast2D" parent="."]
 z_index = 1
-position = Vector2(64, 0)
-target_position = Vector2(-128, 0)
+position = Vector2(64, 64)
+target_position = Vector2(-128, -128)
 collision_mask = 131072
 collide_with_areas = true
 
-[node name="RayCast2DRight" type="RayCast2D" parent="."]
+[node name="RayCast2DSW" type="RayCast2D" parent="."]
 z_index = 1
-position = Vector2(-64, 0)
-target_position = Vector2(128, 0)
+position = Vector2(64, -64)
+target_position = Vector2(-128, 128)
 collision_mask = 131072
 collide_with_areas = true
 

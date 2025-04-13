@@ -12,17 +12,28 @@ var tween: Tween
 
 @export var target_zone_id = "squareHole"
 
-@onready var raycastDown := $RayCast2DDown
-@onready var raycastUp := $RayCast2DUp
-@onready var raycastLeft := $RayCast2DLeft
-@onready var raycastRight := $RayCast2DRight
+@export var areaGroups: Array[StringName] = []
+@export var areaLayers: Array[int] = []
+
+@export var draggingDisabled := false
+
+@onready var raycastSE := $RayCast2DSE
+@onready var raycastNW := $RayCast2DNW
+@onready var raycastNE := $RayCast2DNE
+@onready var raycastSW := $RayCast2DSW
 
 @onready var area := $Area2D
 
 func _ready() -> void:
 	Dragging.object_selected.connect(select)
+	for group in areaGroups:
+		area.add_to_group(group)
+	for layer in areaLayers:
+		area.set_collision_layer_value(layer, true)
 
 func select(object: Node2D):
+	if draggingDisabled:
+		return
 	if object == self:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
@@ -32,15 +43,15 @@ func select(object: Node2D):
 
 func _physics_process(delta: float) -> void:
 	var collisions = [
-		raycastDown.is_colliding(),
-		raycastUp.is_colliding(),
-		raycastRight.is_colliding(),
-		raycastLeft.is_colliding()
+		raycastSE.is_colliding(),
+		raycastNW.is_colliding(),
+		raycastSW.is_colliding(),
+		raycastNE.is_colliding()
 	]
 	is_inside_dragging_zone = not true in collisions
 
 func _process(delta: float) -> void:
-	if draggable:
+	if draggable && !draggingDisabled:
 		if Input.is_action_just_pressed("click"):
 			initial_position = global_position
 			drag_position_offset = global_position - get_global_mouse_position()
@@ -100,21 +111,29 @@ func move(vector: Vector2):
 	global_position += vector
 
 func _on_area_2d_mouse_entered() -> void:
+	if draggingDisabled:
+		return
 	if not Dragging.is_dragging || Dragging.selected_object != self:
 		Dragging.select_object(self)
 
 
 func _on_area_2d_mouse_exited() -> void:
+	if draggingDisabled:
+		return
 	if not Dragging.is_dragging || Dragging.selected_object != self:
 		Dragging.deselect_object(self)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if draggingDisabled:
+		return
 	if body.is_in_group("droppable"):
 		zone_refs.append(body)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	if draggingDisabled:
+		return
 	if body.is_in_group("droppable"):
 		zone_refs.erase(body)
 
