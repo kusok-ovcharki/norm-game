@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=24 format=3 uid="uid://bqntex0s5ahkv"]
 
 [ext_resource type="PackedScene" uid="uid://conr1u1wgn6b7" path="res://scenes/workbench_zone/workbench_zone.tscn" id="1_p1srv"]
 [ext_resource type="PackedScene" uid="uid://c2becqsav5kij" path="res://scenes/draggable_object/draggable_object.tscn" id="2_brohc"]
@@ -13,6 +13,47 @@
 [ext_resource type="PackedScene" uid="uid://nanjqw00d4py" path="res://scenes/misc/draggable_text4.tscn" id="11_u2c0s"]
 [ext_resource type="PackedScene" uid="uid://drrhmmcornseb" path="res://core/game_audio.tscn" id="12_ja1sj"]
 [ext_resource type="PackedScene" uid="uid://bvm6vtv6cojv" path="res://scenes/misc/oil_pan.tscn" id="13_08p47"]
+[ext_resource type="Texture2D" uid="uid://ckmv3dxeayf1x" path="res://assets/scribble/frame_0_delay-0.07s.png" id="14_rimkg"]
+[ext_resource type="Texture2D" uid="uid://bailpmr31lprh" path="res://assets/scribble/frame_1_delay-0.07s.png" id="15_v372j"]
+[ext_resource type="Texture2D" uid="uid://b7g2ih2ql6s7s" path="res://assets/scribble/frame_2_delay-0.07s.png" id="16_3vd0y"]
+[ext_resource type="Texture2D" uid="uid://bo23hwokwu5o5" path="res://assets/scribble/frame_3_delay-0.07s.png" id="17_yb66c"]
+[ext_resource type="Texture2D" uid="uid://cfcv7pbh3rlsu" path="res://assets/scribble/frame_4_delay-0.07s.png" id="18_7kb3b"]
+[ext_resource type="Texture2D" uid="uid://btvcorckr5vrd" path="res://assets/scribble/frame_5_delay-0.07s.png" id="19_v56q0"]
+[ext_resource type="Texture2D" uid="uid://bn7hbrk2v53pu" path="res://assets/scribble/frame_6_delay-0.07s.png" id="20_jxtmu"]
+[ext_resource type="Texture2D" uid="uid://uwhwe0fmni3h" path="res://assets/scribble/frame_7_delay-0.07s.png" id="21_3ceu4"]
+[ext_resource type="FontFile" uid="uid://dm6bmw46diga" path="res://assets/ofont.ru_Ura Bum Bum SP.ttf" id="22_v372j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08p47"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_rimkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v372j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3vd0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yb66c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7kb3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v56q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jxtmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3ceu4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="WorkbenchScene" type="Node2D"]
 
@@ -89,3 +130,21 @@ position = Vector2(1164, 626)
 z_index = 105
 z_as_relative = false
 position = Vector2(1128, 567)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(616, 442)
+sprite_frames = SubResource("SpriteFrames_08p47")
+autoplay = "default"
+frame_progress = 0.443429
+
+[node name="Label" type="Label" parent="."]
+offset_left = 563.0
+offset_top = 450.0
+offset_right = 677.0
+offset_bottom = 504.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("22_v372j")
+theme_override_font_sizes/font_size = 48
+text = "Часы"
