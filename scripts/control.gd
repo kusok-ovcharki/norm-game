@@ -32,3 +32,7 @@ func _on_next_button_pressed() -> void:
 		is_waiting_for_input = false
 		$AnimationPlayer.play()  # Продолжаем анимацию
 		return
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().change_scene_to_file("res://scenes/WorkbenchScene.tscn")

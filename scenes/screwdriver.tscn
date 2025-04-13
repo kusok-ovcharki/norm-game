@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://lrjc77txokx"]
 
-[ext_resource type="Script" path="res://scripts/screwdriver.gd" id="1_2mm6f"]
+[ext_resource type="Script" uid="uid://clakkxohl1b3f" path="res://scripts/screwdriver.gd" id="1_2mm6f"]
 [ext_resource type="Texture2D" uid="uid://dib52uio6vhmk" path="res://assets/screwdriver_animation/screwdriver_side.png" id="2_xmvqa"]
 [ext_resource type="Texture2D" uid="uid://cprxcldtpyc8k" path="res://assets/screwdriver_animation/screwdriver_top_1.png" id="3_68cad"]
 [ext_resource type="Texture2D" uid="uid://bfqhi4i7skyo0" path="res://assets/screwdriver_animation/screwdriver_top_2.png" id="4_hww68"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqntex0s5ahkv"]
+[gd_scene load_steps=20 format=3 uid="uid://bqntex0s5ahkv"]
 
-[ext_resource type="Texture2D" uid="uid://36vcmmu1vbvu" path="res://assets/bg.png" id="1_ti55o"]
+[ext_resource type="Texture2D" uid="uid://dbxqmeasmu6rc" path="res://assets/bg_dialogue.png" id="1_4uqlb"]
 [ext_resource type="Texture2D" uid="uid://dm3x2jgsa0lru" path="res://assets/characters/fox.png" id="2_anafn"]
 [ext_resource type="Texture2D" uid="uid://oty2h66snqsu" path="res://assets/characters/rabbit.png" id="3_sg6bi"]
 [ext_resource type="Texture2D" uid="uid://dc5egllbtkqdn" path="res://assets/table.png" id="4_emjdy"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b5r86o8os3eg1" path="res://ui/back_arrow_hover.png" id="11_6r5y3"]
 [ext_resource type="Texture2D" uid="uid://pw2rexsekjn4" path="res://ui/button_pressed.png" id="12_4uqlb"]
 [ext_resource type="Texture2D" uid="uid://to3ghcdn8pqv" path="res://ui/button_pressed_hover.png" id="13_ti55o"]
-[ext_resource type="PackedScene" uid="uid://drrhmmcornseb" path="res://core/game_audio.tscn" id="14_ti55o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljm0d"]
 animations = [{
@@ -278,9 +277,6 @@ tracks/20/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_ti55o"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_6nd5d"]
 resource_name = "fox"
 length = 37.0
@@ -478,7 +474,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(-0.2, 4.2, 5.2, 5.6, 6.2, 6.6, 7.2, 7.6, 8.2, 8.6, 9.2, 9.6, 10.2, 10.6, 11.2, 11.6, 12.2, 12.6, 13.2, 15.2, 15.6, 16.2, 16.6, 17.2, 17.6, 18.2, 18.6, 19.2, 19.6, 20.2, 20.6, 21.2, 21.6, 22.2, 22.6, 23.2, 23.6, 24.2, 24.6, 25.2, 25.6, 26.2, 26.6, 27.2, 27.6, 28.2, 28.6, 29.2, 30.6, 31, 31.6, 32, 32.6, 33, 33.6, 34, 34.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "Привет, мастер... Можно тебя на чуть-чуть отвлечь?", "", "Конечно, заходи! Что там у тебя?", "", "Мой телескоп  сломался как раз перед метеоритным дождём!", "", "Опять ты его на лужайке забыл? Говорил же — роса и телескопы не дружат.", "", "Да не в этом дело! Вчера ночью я точно видел, как что-то двигалось между орбитами Марса и Юпитера! Но этот старичок… *стучит по телескопу*", "", "Линза расшаталась, зеркало в пыли... и, о чудо, — *достаёт из трубы застрявший желудь* — ещё и \"астрономический артефакт\" внутри.", "", "*Смущённо чешет затылок* Э-э... Это же не мой... Наверное...", "", "Ладно, завтра вечером забирай.", "", "Уррраа! Спасибо! Как раз успею на пик метеорного потока! ", "", "", "Добрый день, мастер. Надеюсь, я не отрываю вас от важного дела?", "", "Чарльз? Неожиданно. Вы обычно присылаете своих помощников за ремонтом.", "", "Этот артефакт… требует особого обращения. ", "", "Хм. Дерево, шестерёнки… странный домик. Для чего он?", "", "По моим исследованиям, это «часы» эпохи безхвостых. Они измеряли… что-то. ", "", "Согласно записям, наши предки были одержимы измерением чего-то, что они называли \"временем\". ", "", "Это устройство должно было... *перелистывает записную книжку* ...\"отсчитывать мгновения их бренного существования\". ", "", "Ну или измерять температуру супа.", "", "*Морщится* безхвостые?", "", "*Кивает* Да, древняя раса. Без хвоста. Без шерсти. Совсем голые. ", "", "*Смеется* Ха-ха, Звучит как больная фантазия.", "", "Тем не менее, они существовали. И это — одно из их изобретений. Говорят, оно двигалось само.", "", "Ну, сейчас точно не двигается.", "", "Потому и принёс вам. Я хочу, чтобы моя коллекция пополнилась работающим артефактом. Представьте, это большой шаг к пониманию их мира.", "", "", "*Ворчит* Безхвостые... Ну и ну.", "", "Хм... Интересная штуковина. Но зачем Безхвостым понадобилось это «время»? Ещё и запертое в коробочки.", "", "“отсчитывать мгновения их существования” Мне прекрасно живётся и без всякого отсчёта. Просыпаюсь, когда высыпаюсь. Работаю, пока интересно. Ем, когда проголодался… Просто и понятно.", "", "Ладно. Пусть ваше «время» останется здесь. А мы… уж как-нибудь без него разберёмся.", ""]
+"values": ["", "Привет, мастер... Можно тебя на чуть-чуть отвлечь?", "", "Конечно, заходи! Что там у тебя?", "", "Мой телескоп  сломался как раз перед метеоритным дождём!", "", "Опять ты его на лужайке забыл? Говорил же — роса и телескопы не дружат.", "", "Да не в этом дело! Вчера ночью я точно видел, как что-то двигалось между орбитами Марса и Юпитера! Но этот старичок… *стучит по телескопу*", "", "Линза расшаталась, зеркало в пыли... и, о чудо, — *достаёт из трубы застрявший желудь* — ещё и \"астрономический артефакт\" внутри.", "", "*Смущённо чешет затылок* Э-э... Это же не мой... Наверное...", "", "Ладно, завтра вечером забирай.", "", "Уррраа! Спасибо! Как раз успею на пик метеорного потока! ", "", "", "Добрый день, мастер. Надеюсь, я не отрываю вас от важного дела?", "", "Чарльз? Неожиданно. Вы обычно присылаете своих помощников за ремонтом.", "", "Этот артефакт… требует особого обращения. ", "", "Хм. Дерево, шестерёнки… странный домик. Для чего он?", "", "По моим исследованиям, это «часы» эпохи безхвостых. Они измеряли… что-то. ", "", "Согласно записям, наши предки были одержимы измерением чего-то, что они называли \"временем\". ", "", "Это устройство должно было... *перелистывает записную книжку* ...\"отсчитывать мгновения их бренного существования\". ", "", "Ну или измерять температуру супа.", "", "*Морщится* безхвостые?", "", "*Кивает* Да, древняя раса. Без хвоста. Без шерсти. Совсем голые. ", "", "*Смеется* Ха-ха, Звучит как больная фантазия.", "", "Тем не менее, они существовали. И это — одно из их изобретений. Говорят, оно двигалось само.", "", "Ну, сейчас точно не двигается.", "", "Потому и принёс вам. Я хочу, чтобы моя коллекция пополнилась работающим артефактом. Представьте, это большой шаг к пониманию их мира.", "", "", "*Ворчит* Безхвостые... Ну и ну.", "", "Хм... Интересная штуковина. Но зачем Безхвостым понадобилось это «время»? Ещё и запертое в коробочки.", "", "Мне прекрасно живётся и без всякого отсчёта. Просыпаюсь, когда высыпаюсь. Ем, когда проголодался… Просто и понятно.", "", "Ладно. Пусть ваше «время» останется здесь. А мы… уж как-нибудь без него разберёмся.", ""]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -513,7 +509,7 @@ tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37)
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 34.6, 37)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
@@ -524,7 +520,7 @@ tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 34.6, 37.2)
 }
 tracks/14/type = "bezier"
 tracks/14/imported = false
@@ -535,7 +531,7 @@ tracks/14/loop_wrap = true
 tracks/14/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 34.6, 37.2)
 }
 tracks/15/type = "bezier"
 tracks/15/imported = false
@@ -546,7 +542,7 @@ tracks/15/loop_wrap = true
 tracks/15/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(-0.2, 1.8, 2.3, 33.9, 37.2)
+"times": PackedFloat32Array(-0.2, 1.8, 2.3, 34.6, 37.2)
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -555,7 +551,7 @@ tracks/16/path = NodePath("ColorRect:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(-0.2, 2.4, 33.9, 37.2),
+"times": PackedFloat32Array(-0.2, 2.4, 34.6, 37.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -644,15 +640,14 @@ tracks/23/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqrjp"]
 _data = {
 &"RESET": SubResource("Animation_ljm0d"),
-&"fox": SubResource("Animation_6nd5d"),
-&"new_animation": SubResource("Animation_ti55o")
+&"fox": SubResource("Animation_6nd5d")
 }
 
 [node name="DialogScene" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("1_ti55o")
+texture = ExtResource("1_4uqlb")
 
 [node name="Fox" type="Sprite2D" parent="."]
 visible = false
@@ -762,3 +757,4 @@ color = Color(0, 0, 0, 0)
 [connection signal="gui_input" from="Control/MarginContainer" to="Control" method="_on_margin_container_gui_input"]
 [connection signal="pressed" from="Control/PrevButton" to="Control" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Control/NextButton" to="Control" method="_on_next_button_pressed"]
+[connection signal="animation_finished" from="Control/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]
