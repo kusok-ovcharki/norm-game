@@ -37,6 +37,7 @@ drawer_left=""
 drawer_center=""
 drawer_right=""
 droppable=""
+brush=""
 
 [input]
 
