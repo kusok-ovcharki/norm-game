@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="norm-game"
-run/main_scene="uid://bqntex0s5ahkv"
+run/main_scene="uid://bo2yakfrfvdqx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dragging="*res://core/dragging.gd"
+Settings="*res://core/settings.gd"
 
 [display]
 
