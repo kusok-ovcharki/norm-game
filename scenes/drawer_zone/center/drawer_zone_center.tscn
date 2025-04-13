@@ -16,7 +16,7 @@ texture = ExtResource("4_afvfx")
 [node name="CollisionPolygon2D" parent="." index="1" groups=["drawer_center"]]
 z_index = 20
 z_as_relative = false
-polygon = PackedVector2Array(-112, -129, -120, 44, 111, 45, 104, -128)
+polygon = PackedVector2Array(-112, -136, -120, 44, 111, 45, 104, -135)
 
 [node name="DrawerCenterFace" type="Sprite2D" parent="." index="2"]
 z_index = 1050

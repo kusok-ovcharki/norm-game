@@ -25,6 +25,7 @@ func drag_object_start(object: Node2D):
 
 	is_dragging = true
 	object.z_index = dragged_z_index
+	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 
 func drag_object_end(object: Node2D):
 	is_dragging = false
@@ -32,6 +33,7 @@ func drag_object_end(object: Node2D):
 		object.z_index = max_z_index
 	else:
 		object.z_index = selected_object_z_index
+	Input.set_default_cursor_shape(Input.CURSOR_CAN_DROP)
 
 func select_object(object: Node2D):
 	if is_dragging && selected_object == object:
@@ -62,6 +64,8 @@ func _set_selected_object(object: Node2D):
 	selected_object = object
 	selected_object_z_index = object.z_index if object != null else -1
 	object_selected.emit(object)
+	var cursor_shape = Input.CURSOR_CAN_DROP if object != null else Input.CURSOR_ARROW
+	Input.set_default_cursor_shape(cursor_shape)
 
 func is_on_top(a: Node2D, b: Node2D):
 	return (a.z_index > b.z_index

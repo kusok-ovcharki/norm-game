@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b5r86o8os3eg1" path="res://ui/back_arrow_hover.png" id="11_6r5y3"]
 [ext_resource type="Texture2D" uid="uid://pw2rexsekjn4" path="res://ui/button_pressed.png" id="12_4uqlb"]
 [ext_resource type="Texture2D" uid="uid://to3ghcdn8pqv" path="res://ui/button_pressed_hover.png" id="13_ti55o"]
+[ext_resource type="PackedScene" uid="uid://drrhmmcornseb" path="res://core/game_audio.tscn" id="14_ti55o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljm0d"]
 animations = [{
