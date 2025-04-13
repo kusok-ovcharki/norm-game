@@ -12,10 +12,10 @@ var tween: Tween
 
 @export var target_zone_id = "squareHole"
 
-@onready var raycastDown := $RayCast2DDown
-@onready var raycastUp := $RayCast2DUp
-@onready var raycastLeft := $RayCast2DLeft
-@onready var raycastRight := $RayCast2DRight
+@onready var raycastSE := $RayCast2DSE
+@onready var raycastNW := $RayCast2DNW
+@onready var raycastNE := $RayCast2DNE
+@onready var raycastSW := $RayCast2DSW
 
 @onready var area := $Area2D
 
@@ -32,10 +32,10 @@ func select(object: Node2D):
 
 func _physics_process(delta: float) -> void:
 	var collisions = [
-		raycastDown.is_colliding(),
-		raycastUp.is_colliding(),
-		raycastRight.is_colliding(),
-		raycastLeft.is_colliding()
+		raycastSE.is_colliding(),
+		raycastNW.is_colliding(),
+		raycastSW.is_colliding(),
+		raycastNE.is_colliding()
 	]
 	is_inside_dragging_zone = not true in collisions
 
