@@ -28,7 +28,10 @@ func drag_object_start(object: Node2D):
 
 func drag_object_end(object: Node2D):
 	is_dragging = false
-	object.z_index = max_z_index
+	if object.is_in_group("draggable"):
+		object.z_index = max_z_index
+	else:
+		object.z_index = selected_object_z_index
 
 func select_object(object: Node2D):
 	if is_dragging && selected_object == object:
