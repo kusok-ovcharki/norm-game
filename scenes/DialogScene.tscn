@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cdmuic33tsr5q"]
+[gd_scene load_steps=21 format=3 uid="uid://cdmuic33tsr5q"]
 
 [ext_resource type="Texture2D" uid="uid://d05h07udgfsoy" path="res://assets/1screen/bg.png" id="1_ta01q"]
 [ext_resource type="Texture2D" uid="uid://ch6mvr7lbepyu" path="res://assets/1screen/rabbit.png" id="2_bpgek"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b5r86o8os3eg1" path="res://ui/back_arrow_hover.png" id="11_6r5y3"]
 [ext_resource type="Texture2D" uid="uid://pw2rexsekjn4" path="res://ui/button_pressed.png" id="12_4uqlb"]
 [ext_resource type="Texture2D" uid="uid://to3ghcdn8pqv" path="res://ui/button_pressed_hover.png" id="13_ti55o"]
+[ext_resource type="PackedScene" uid="uid://drrhmmcornseb" path="res://core/game_audio.tscn" id="14_ti55o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljm0d"]
 animations = [{
@@ -179,6 +180,8 @@ texture_disabled = ExtResource("12_4uqlb")
 libraries = {
 &"": SubResource("AnimationLibrary_sqrjp")
 }
+
+[node name="GameAudio" parent="." instance=ExtResource("14_ti55o")]
 
 [connection signal="gui_input" from="Control/MarginContainer" to="Control" method="_on_margin_container_gui_input"]
 [connection signal="pressed" from="Control/PrevButton" to="Control" method="_on_texture_button_pressed"]
